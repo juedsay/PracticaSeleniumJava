@@ -11,15 +11,16 @@ public class BasePage {
     WebDriverWait wait = new WebDriverWait(driver, 10);
 
     static{
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         driver = new ChromeDriver(chromeOptions);
     }
         public BasePage(WebDriver driver){
             BasePage.driver = driver;
+            wait = new WebDriverWait(driver, 10);
         }
 
-        public static void navigateTo(String url){
+        public void navigateTo(String url){
             driver.get(url);
         }
 }
